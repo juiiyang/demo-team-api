@@ -7,8 +7,8 @@ class TeamSettings(BaseSettings):
     Reference: https://pydantic-docs.helpmanual.io/usage/settings/
     """
 
-    gpt_4_mini: str = "openai/gpt-4o-mini"
-    gpt_4: str = "openai/gpt-4o"
+    gpt_4_mini: str = "gpt-4o-mini"
+    gpt_4: str = "gpt-4o"
     or_free_model: str = "google/gemini-2.5-flash-preview-05-20"
     embedding_model: str = "text-embedding-3-small"
     default_max_completion_tokens: int = 16000
