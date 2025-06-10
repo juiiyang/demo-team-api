@@ -17,8 +17,8 @@ finance_agent = Agent(
     name="Finance Agent",
     role="Analyze financial data",
     agent_id="finance-agent",
-    model=OpenRouter(
-        id=team_settings.or_free_model,
+    model=OpenAIChat(
+        id=team_settings.gpt_41_mini,
         max_tokens=team_settings.default_max_completion_tokens,
         temperature=team_settings.default_temperature,
     ),
@@ -67,7 +67,7 @@ web_agent = Agent(
     name="Web Agent",
     role="Search the web for information",
     model=OpenAIChat(
-        id=team_settings.gpt_4_mini,
+        id=team_settings.gpt_41_mini,
         max_tokens=team_settings.default_max_completion_tokens,
         temperature=team_settings.default_temperature,
     ),
@@ -88,7 +88,7 @@ def get_finance_researcher_team(
     session_id: Optional[str] = None,
     debug_mode: bool = True,
 ):
-    model_id = model_id or team_settings.gpt_4
+    model_id = model_id or team_settings.gpt_41
 
     return Team(
         name="Finance Researcher Team",
