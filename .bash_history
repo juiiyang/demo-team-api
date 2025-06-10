@@ -1,0 +1,3 @@
+echo $OPENAI_API_KEY
+echo $OPENROUTER_API_KEY
+exit

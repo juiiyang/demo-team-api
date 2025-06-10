@@ -34,7 +34,7 @@ playground = Playground(
 )
 
 # Register the endpoint where playground routes are served with agno.com
-if getenv("RUNTIME_ENV") == "dev":
-    playground.create_endpoint(f"http://localhost:{dev_fastapi.host_port}")
-
+# if getenv("RUNTIME_ENV") == "dev":
+#     playground.create_endpoint(f"http://localhost:{dev_fastapi.host_port}")
+#
 playground_router = playground.get_async_router()

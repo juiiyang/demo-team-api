@@ -62,5 +62,5 @@ no-annotate = true
 log_cli = true
 
 [tool.pyright]
-venvPath = "./.venv"  # 指定虚拟环境的父目录，例如项目根目录下的 .venv 文件夹
-venv = "my-project-env" # 指定虚拟环境的名称，例如 my-project-env
+venvPath = "./.venv" # 指定虚拟环境的父目录，例如项目根目录下的 .venv 文件夹
+venv = "venv"        # 指定虚拟环境的名称，例如 my-project-env

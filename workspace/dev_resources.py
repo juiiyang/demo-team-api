@@ -29,6 +29,7 @@ dev_db = PgVectorDb(
     pg_database="ai",
     # Connect to this db on port 5432
     host_port=5432,
+    container_port=5432,
 )
 
 # -*- Container environment
@@ -36,6 +37,7 @@ container_env = {
     "RUNTIME_ENV": "dev",
     # Get the OpenAI API key and Exa API key from the local environment
     "OPENAI_API_KEY": getenv("OPENAI_API_KEY"),
+    "OPENROUTER_API_KEY": getenv("OPENROUTER_API_KEY"),
     # Enable monitoring
     "AGNO_MONITOR": "True",
     "AGNO_API_KEY": getenv("AGNO_API_KEY"),
@@ -57,6 +59,8 @@ dev_fastapi = FastApi(
     image=dev_image,
     command="uvicorn api.main:app --reload",
     port_number=8000,
+    container_port=8000,
+    host_port=8000,
     debug_mode=True,
     mount_workspace=True,
     env_vars=container_env,
