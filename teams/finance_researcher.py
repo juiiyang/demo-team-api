@@ -6,6 +6,7 @@ from agno.models.openai import OpenAIChat
 from agno.storage.postgres import PostgresStorage
 from agno.team.team import Team
 from agno.tools.duckduckgo import DuckDuckGoTools
+from agno.tools.bravesearch import BraveSearchTools
 from agno.tools.yfinance import YFinanceTools
 from agno.models.openrouter import OpenRouter
 
@@ -22,7 +23,7 @@ finance_agent = Agent(
         max_tokens=team_settings.default_max_completion_tokens,
         temperature=team_settings.default_temperature,
     ),
-    tools=[YFinanceTools(enable_all=True, cache_results=True)],
+    tools=[YFinanceTools(enable_all=True)],
     instructions=dedent("""\
         You are a seasoned Wall Street analyst with deep expertise in market analysis! 📊
 
@@ -71,7 +72,7 @@ web_agent = Agent(
         max_tokens=team_settings.default_max_completion_tokens,
         temperature=team_settings.default_temperature,
     ),
-    tools=[DuckDuckGoTools(cache_results=True)],
+    tools=[BraveSearchTools()],
     agent_id="web-agent",
     instructions=[
         "You are an experienced web researcher and news analyst!",
